@@ -36,6 +36,6 @@ tasks.processResources {
 tasks.jar {
     manifest.attributes(
         "TweakClass" to "com.anatawa12.jstack.gui.Tweaker",
-        "MainClass" to "com.anatawa12.jstack.gui",
+        "Main-Class" to "com.anatawa12.jstack.gui.Main",
     )
 }
