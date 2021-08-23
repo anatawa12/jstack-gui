@@ -1,0 +1,59 @@
+Most part of this project is published under BSD 2-Clause "Simplified" License.
+However, some files from external project which is not under BSD 2-Clause are
+in this repository to provide compile-time signature information to javac.
+
+All files in src/api will not be included in final jar.
+
+src/api/java/net/minecraft/launchwrapper/ITweaker.java
+is a file copied with appending one line header from
+https://github.com/Mojang/LegacyLauncher,
+a Minecraft launcher for modding which is under
+unknown license but issue#1 looks saying mostly free.
+
+src/api/java/cpw/mods/modlauncher/api/ITransformationService.java
+is a file copied with commenting via single-line comment and
+replacing method signature without binary breaking changes,
+from https://github.com/cpw/modlauncher,
+a Minecraft launcher for modern version which is under
+GNU Lesser General Public License version 3.
+
+The com/anatawa12/jstack/gui/tools.jar in final distribution is from
+JDK built that binary distribution.
+OpenJDK is under GNU General Public License version 2 with ClassPath exception.
+If it's not from OpenJDK, please contact binary distributor if you want to
+know license of tools.jar.
+
+In this project, tools.jar is used to launch jshell on separated process,
+not to link and this just call jshell as shell script does so I think
+licensing via GPL is not required. If you're professional of GNU GPL
+or you're copyright owner of openjdk or other JDKs which this binary distribution
+is built on, Please contact binary distributor.
+see also: https://www.gnu.org/licenses/gpl-faq.html#MereAggregation
+
+================================================================================
+
+             BSD 2-Clause "Simplified" License (BSD-2-Clause)
+
+Copyright (c) 2021, anatawa12 and other contributors
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this
+   list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice,
+   this list of conditions and the following disclaimer in the documentation
+   and/or other materials provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
