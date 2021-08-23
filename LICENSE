@@ -17,19 +17,6 @@ from https://github.com/cpw/modlauncher,
 a Minecraft launcher for modern version which is under
 GNU Lesser General Public License version 3.
 
-The com/anatawa12/jstack/gui/tools.jar in final distribution is from
-JDK built that binary distribution.
-OpenJDK is under GNU General Public License version 2 with ClassPath exception.
-If it's not from OpenJDK, please contact binary distributor if you want to
-know license of tools.jar.
-
-In this project, tools.jar is used to launch jshell on separated process,
-not to link and this just call jshell as shell script does so I think
-licensing via GPL is not required. If you're professional of GNU GPL
-or you're copyright owner of openjdk or other JDKs which this binary distribution
-is built on, Please contact binary distributor.
-see also: https://www.gnu.org/licenses/gpl-faq.html#MereAggregation
-
 ================================================================================
 
              BSD 2-Clause "Simplified" License (BSD-2-Clause)

@@ -14,27 +14,18 @@ import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.BufferedReader;
-import java.io.Closeable;
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.io.Reader;
 import java.io.StringWriter;
-import java.net.URL;
 import java.nio.CharBuffer;
 import java.nio.charset.Charset;
 
 import static java.awt.event.KeyEvent.CHAR_UNDEFINED;
 
 public class Main extends Frame {
-    // main resources
-    URL toolsJar;
-    File toolsJarFile;
-    Util.CopiedCallBack copied = new Util.CopiedCallBack();
     // util to be launched by other program.
     File cachedExecutableToBeRemoved;
 
@@ -44,10 +35,6 @@ public class Main extends Frame {
     TextArea output;
 
     public Main() {
-        toolsJar = Main.class.getResource("tools.jar");
-        if (toolsJar == null)
-            throw new IllegalStateException("invalid installation, tools.jar not found");
-
         setTitle("jstack gui");
         setResizable(false);
         setLocationRelativeTo(null);
@@ -64,25 +51,8 @@ public class Main extends Frame {
         addWindowListener(new ExitWindowAdapter());
     }
 
-    File getOrNewToolsJarFile() {
-        if (toolsJarFile == null) {
-            try {
-                toolsJarFile = Util.getAsFile(toolsJar, copied);
-            } catch (IOException e) {
-                throw new IllegalStateException(e);
-            }
-        }
-
-        assert toolsJarFile != null : "toolsJarFile init failed";
-
-        return toolsJarFile;
-    }
-
     class ExitWindowAdapter extends WindowAdapter {
         public void windowClosing(WindowEvent e) {
-            if (toolsJarFile != null && copied.copied)
-                //noinspection ResultOfMethodCallIgnored
-                toolsJarFile.delete();
             if (cachedExecutableToBeRemoved != null)
                 //noinspection ResultOfMethodCallIgnored
                 cachedExecutableToBeRemoved.delete();
@@ -93,13 +63,12 @@ public class Main extends Frame {
     class RunButtonHandler implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            File toolsJarFile = getOrNewToolsJarFile();
             StringWriter stringWriter = new StringWriter();
             PrintWriter printWriter = new PrintWriter(stringWriter);
 
             try {
                 Process process = new ProcessBuilder()
-                        .command(Util.getJavaRuntime(), "-cp", toolsJarFile.toString(), "sun.tools.jstack.JStack", pid.getText())
+                        .command("jstack", pid.getText())
                         .redirectErrorStream(true)
                         .redirectOutput(ProcessBuilder.Redirect.PIPE)
                         .redirectInput(ProcessBuilder.Redirect.PIPE)

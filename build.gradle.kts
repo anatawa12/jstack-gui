@@ -24,12 +24,6 @@ dependencies {
 }
 
 tasks.processResources {
-    val javaHome = providers.systemProperty("java.home").forUseAtConfigurationTime()
-    val toolsJar = javaHome.map { File("$it/lib/tools.jar").takeIf { it.exists() } }
-        .orElse(javaHome.map { File("$it/../lib/tools.jar").takeIf { it.exists() } })
-    from(toolsJar) {
-        into("com/anatawa12/jstack/gui")
-    }
     from("LICENSE")
 }
 
