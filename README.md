@@ -9,9 +9,10 @@ this project includes:
 
 ## How to use
 
-1. enter pid to text field. if you use this as a mod, 
+1. install jdk and restart your pc.
+2. enter pid to text field. if you use this as a mod, 
    you don't need to do this step.
-2. click "run jstack"
-3. now jstack result is on textarea
+3. click "run jstack"
+4. now jstack result is on textarea
 
 ![gui-image.png](gui-image.png)
