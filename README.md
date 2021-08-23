@@ -15,9 +15,3 @@ this project includes:
 3. now jstack result is on textarea
 
 ![gui-image.png](gui-image.png)
-
-## Build time warning
-
-This project will embed tools.jar from jdk.
-When you build, please make sure `tools.jar` in your current jvm
-is free to redistribution.
