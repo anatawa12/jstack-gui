@@ -9,7 +9,7 @@ plugins {
 }
 
 group = "com.anatawa12"
-version = "1.0-SNAPSHOT"
+version = "1.0"
 
 val api by sourceSets.creating
 
