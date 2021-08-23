@@ -1,9 +1,11 @@
 # jstack-gui
 
-this project includes
+jstack-gui, a launcher of jstack without console.
+
+this project includes:
 
 1. run jstack from gui
-2. open jstack-gui from mod
+2. launch jstack-gui for minecraft as a mod
 
 ## Build time warning
 
